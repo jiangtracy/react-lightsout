@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`tests rendering the starter board 1`] = `
+<div>
+  <div
+    class="Board"
+  >
+    <table
+      class="Board-table"
+    >
+      <tbody>
+        <tr>
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+        </tr>
+        <tr>
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+        </tr>
+        <tr>
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+          <td
+            class="Cell Cell-lit"
+          />
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

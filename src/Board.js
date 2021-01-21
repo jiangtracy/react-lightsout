@@ -93,7 +93,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
   // make table board
   return (
     <div className="Board">
-      <table>
+      <table className="Board-table">
         <tbody>
           {board.map((row, rowNum) => {
             return (<tr key={`row-${rowNum}`}>
@@ -101,6 +101,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
                  (
                   <Cell
                     key={`${rowNum}-${colNum}`}
+                    id={`${rowNum}-${colNum}`}
                     isLit={val}
                     flipCellsAroundMe={() => flipCellsAround(rowNum, colNum)} />
                 )
