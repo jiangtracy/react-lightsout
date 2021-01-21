@@ -28,7 +28,8 @@ import './Board.css';
  **/
 
 function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
-  const [board, setBoard] = useState(createBoard());
+  // We need to bring this in as a callback. Dont call createBoard every time
+  const [board, setBoard] = useState(createBoard);
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
   function createBoard() {
@@ -47,6 +48,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
+    // Using .every? 
     for (let row = 0; row < nrows; row++) {
       for (let col = 0; col < ncols; col++) {
         if (board[row][col]) return false;
@@ -66,6 +68,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
       };
 
       // TODO: Make a (deep) copy of the oldBoard
+      // map over the oldBoard and spread the row over it
       let boardCopy = [];
       for (let row of oldBoard) {
         boardCopy.push([...row]);
@@ -90,6 +93,9 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
     )
   }
 
+  // Move the tableBoard mapping to a separate array 
+  // so if we need to debug them later, we can get to them 
+
   // make table board
   return (
     <div className="Board">
@@ -101,7 +107,7 @@ function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.3 }) {
                  (
                   <Cell
                     key={`${rowNum}-${colNum}`}
-                    id={`${rowNum}-${colNum}`}
+                    id={`C${rowNum}-${colNum}`}
                     isLit={val}
                     flipCellsAroundMe={() => flipCellsAround(rowNum, colNum)} />
                 )
